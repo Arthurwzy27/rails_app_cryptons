@@ -1,2 +1,11 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<% @coins.each do  |coin| %>
+  <h1><%= coin.name %></h1>
+   <p><%= coin.symbol %></p>
+   <p><%= coin.price %></p>
+<% end %>
+
+
+<%= link_to "Portfolio", portfolios_path %>

@@ -1,0 +1,10 @@
+<h1>Portfolios#index</h1>
+<p>Find me in app/views/portfolios/index.html.erb</p>
+
+<% if current_user.portfolios.empty? %>
+  <%= link_to "Crete a portfolio", new_portfolio_path %>
+<% else %>
+  <% current_user.portfolios.each do |portfolio| %>
+    <h1><%= portfolio.name %></h1>
+  <% end %>
+<% end %>
