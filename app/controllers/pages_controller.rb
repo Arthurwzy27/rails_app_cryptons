@@ -4,5 +4,4 @@ class PagesController < ApplicationController
   def home
     @coins = Coin.all
   end
-
 end
