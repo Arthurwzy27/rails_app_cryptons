@@ -30,7 +30,7 @@ class PortfoliosController < ApplicationController
 
   def destroy
     @portfolio = Portfolio.find(params[:id])
-    @portfolio.user = current_user
+    # @portfolio.user = current_user
     if @portfolio.destroy
       redirect_to portfolios_path
     end
