@@ -7,7 +7,7 @@
   <%= link_to "Create a portfolio", new_portfolio_path %>
 <% else %>
   <% current_user.portfolios.each do |portfolio| %>
-    <h1><%= portfolio.name %></h1>
+    <%= link_to portfolio.name, portfolio_path(portfolio) %>
     <%= link_to 'Delete', portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
   <% end %>
 <% end %>
