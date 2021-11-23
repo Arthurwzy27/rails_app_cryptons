@@ -12,7 +12,6 @@ class EntriesController < ApplicationController
     else
       render :new
     end
-    authorize @entry
   end
 
   def edit
