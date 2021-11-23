@@ -8,3 +8,18 @@
 Coin.destroy_all
 
 Coin.create!(name: "Bitcoin", symbol: "btc", price: 66000)
+
+User.destroy_all
+Portfolio.destroy_all
+
+user_one = User.create!(email: "1@1.com", password: "123456")
+user_two = User.create!(email: "user@example.com", password: "password")
+
+Portfolio.create!(
+  name: "Portfolio test for 1@1",
+  user: user_one
+)
+Portfolio.create!(
+  name: "Portfolio test user@example",
+  user: user_two
+)
