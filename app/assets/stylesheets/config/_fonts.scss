@@ -1,11 +1,9 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Work+Sans:wght@300&display=swap');
 
 // Define fonts for body and headers
-$body-font: 'Rajdhani', sans-serif;
-$headers-font: 'Orbitron', sans-serif;
+$body-font: 'Work Sans', sans-serif;
+$headers-font: 'Roboto', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
