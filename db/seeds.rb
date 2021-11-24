@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Coin.destroy_all
 
-Coin.create!(name: "Bitcoin", symbol: "btc", price: 66000)
+# Coin.create!(name: "Bitcoin", symbol: "btc", price: 66000)
 
 User.destroy_all
 Portfolio.destroy_all
@@ -23,13 +24,21 @@ Portfolio.create!(
   name: "Portfolio test user@example",
   user: user_two
 )
-Entry.destroy_all
-user_ten = User.create!(email: "10@10.com", password: "123456")
-portfolio_ten = Portfolio.create!(name: "Portfolio10")
 
-Entry.create!(
-  amount: 100,
-  buying_price: 87,
-  user: user_ten,
-  portfolio: portfolio_ten
-)
+# Create seed from Coingecko API for new entry
+
+require 'rest-client'
+
+url = RestClient.get 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'
+url_array = JSON.parse(url)
+
+url_array.each do |coin|
+  Coin.create(
+    name: coin["name"],
+    symbol: coin["symbol"],
+    image_url: coin["image"],
+    price: coin["current_price"],
+    percentage_24: coin["price_change_percentage_24h"],
+  )
+end
+

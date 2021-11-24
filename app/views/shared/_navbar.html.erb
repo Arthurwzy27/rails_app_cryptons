@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://cdn-icons-png.flaticon.com/512/2856/2856945.png" %>
   <% end %>
 
@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Market", "#", class: "nav-link" %>
+          <%= link_to "Market", market_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Portfolio", "#", class: "nav-link" %>
+          <%= link_to "Portfolio", portfolios_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Watchlist", "#", class: "nav-link" %>
