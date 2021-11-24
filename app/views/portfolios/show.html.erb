@@ -4,4 +4,4 @@
 
 
 <h1><%= @portfolio.name %></h1>
-<p>test test test</p>
+<%= link_to 'create new entry', new_portfolio_entry_path(@portfolio), class: 'btn btn-link' %>
