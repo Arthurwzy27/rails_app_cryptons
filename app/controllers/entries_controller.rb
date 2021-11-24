@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   def new
+    @portfolio = Portfolio.find(params[:portfolio_id])
     @entry = Entry.new
   end
 
@@ -8,10 +9,14 @@ class EntriesController < ApplicationController
     @portfolio = Portfolio.find(params[:portfolio_id])
     @entry.portfolio = @portfolio
     if @entry.save
-      redirect_to portfolio_path(portfolio)
+      redirect_to portfolio_path(@portfolio)
     else
       render :new
     end
+  end
+
+  def show
+    @entry = Entry.find(params[:id])
   end
 
   def edit
@@ -21,5 +26,11 @@ class EntriesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def entry_params
+    params.require(:entry).permit(:amount, :buying_price, :coin_id, :portfolio_id)
   end
 end

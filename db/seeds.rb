@@ -23,3 +23,13 @@ Portfolio.create!(
   name: "Portfolio test user@example",
   user: user_two
 )
+Entry.destroy_all
+user_ten = User.create!(email: "10@10.com", password: "123456")
+portfolio_ten = Portfolio.create!(name: "Portfolio10")
+
+Entry.create!(
+  amount: 100,
+  buying_price: 87,
+  user: user_ten,
+  portfolio: portfolio_ten
+)

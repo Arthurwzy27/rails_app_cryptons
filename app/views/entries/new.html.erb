@@ -5,11 +5,12 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
+      <%= link_to '←', portfolios_path, class: 'btn btn-link' %>
         <h1>Add a new entry</h1>
-        <%= simple_form_for [@portfolio] do |f| %>
-          <%# <%= f.association :coin, prompt: 'Which crypto you want?', input_html: { class: 'select2' } %>
-          <%= f.input :amount, placeholder: 'Enter the amount you want' %>
-          <%= f.input :buying_price, placeholder: 'What is the price?' %>
+        <%= simple_form_for [@portfolio, @entry] do |f| %>
+          <%= f.association :coin, prompt: 'Which crypto you want?', input_html: { class: 'select2' } %>
+          <%= f.input :amount, placeholder: 'Enter the amount you want!' %>
+          <%= f.input :buying_price, placeholder: 'How many do you want to invest?' %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
