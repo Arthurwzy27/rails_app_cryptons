@@ -1,0 +1,19 @@
+<h1 style="padding: 50px">Today's Cryptocurrency Prices</h1>
+<div class="market-table">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>24h. %</th>
+    </tr>
+    <% @coins.each do |coin| %>
+    <tr>
+      <td><%= link_to coin.name, coin %></td>
+      <td><%= coin.symbol %></td>
+      <td><%= coin.price %> $</td>
+      <td><%= coin.percentage_24 %> %</td>
+    </tr>
+    <% end %>
+  </table>
+</div>
