@@ -1,14 +1,20 @@
-<h1>Your Portfolios :</h1>
+<div class="main-content">
+  <% if current_user.portfolios.empty? %>
+    <%= link_to "Create a portfolio", new_portfolio_path %>
+  <% else %>
+    <% current_user.portfolios.each do |portfolio| %>
+      <%= link_to portfolio_path(portfolio) do %>
+      <h1><%= portfolio.name %></h1>
+      <% end %>
+      <%= link_to "Edit", edit_portfolio_path(portfolio) %>
+      <%= link_to 'Delete', portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
 
-<% if current_user.portfolios.empty? %>
-  <%= link_to "Create a portfolio", new_portfolio_path %>
-<% else %>
-  <% current_user.portfolios.each do |portfolio| %>
-    <%= link_to portfolio_path(portfolio) do %>
-    <h2><%= portfolio.name %></h2>
     <% end %>
-    <%= link_to "Edit", edit_portfolio_path(portfolio) %>
-    <%= link_to 'Delete', portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
   <% end %>
-<% end %>
-<%= link_to 'Add a new portfolio', new_portfolio_path, class: 'btn btn-flat' %>
+  <div class="d-flex justify-content-end">
+    <%= link_to new_portfolio_path, class: 'btn btn-flat' do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+  </div>
+</div>
+
