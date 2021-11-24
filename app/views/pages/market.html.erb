@@ -1,6 +1,42 @@
-<% @coins.each do |coin| %>
-  <p><%= coin["symbol"] %></p>
-  <p><%= coin["image"] %></p>
-  <p><%= coin["name"] %></p>
-  <p><%= coin["current_price"] %></p>
-<% end %>
+<div class="card">
+  <% @coins.each do |coin| %>
+  <div class="card-body-flex">
+    <p class="card-text-flex"><%= coin["market_cap_rank"] %></p>
+    <p class="card-text-flex"><%= coin["name"] %></p>
+    <p class="card-text-flex"><%= coin["symbol"] %></p>
+    <p class="card-text-flex"><%= coin["current_price"] %> $</p>
+    <p class="card-text-flex"><%= coin["price_change_percentage_24h"] %> %</p>
+    <p class="card-text-flex"><%= coin["market_cap"] %> $</p>
+  </div>
+  <% end %>
+</div>
+
+  <table>
+<div class="card">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Price</th>
+        <th>24h. %</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @coins.each do |coin| %>
+        <div class="card-body-flex">
+          <tr>
+            <td><%= coin["market_cap_rank"] %></td>
+            <td><%= coin["name"] %></td>
+            <td><%= coin["symbol"] %></td>
+            <td><%= coin["current_price"] %> $</td>
+            <td><%= coin["price_change_percentage_24h"] %> %</td>
+            <td><%= coin["market_cap"] %> $</td>
+          </tr>
+        </div>
+      <% end %>
+    </tbody>
+</div>
+  </table>
