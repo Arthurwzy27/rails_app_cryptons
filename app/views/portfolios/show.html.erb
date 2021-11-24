@@ -4,7 +4,7 @@
 
   <%= link_to 'create new entry', new_portfolio_entry_path(@portfolio), class: 'btn btn-link' %>
 
-ºº<h1><%= @portfolio.name %></h1>
+  <h1><%= @portfolio.name %></h1>
 
   <% @portfolio.entries.each do |entry| %>
      <p><%= entry.coin.name %></p>
