@@ -20,12 +20,20 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    @entry = Entry.find(params[:id])
   end
 
   def update
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_params)
+      redirect_to portfolio_path(@entry.portfolio)
+    end
   end
 
   def destroy
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    redirect_to portfolio_path(@entry.portfolio)
   end
 
   private
