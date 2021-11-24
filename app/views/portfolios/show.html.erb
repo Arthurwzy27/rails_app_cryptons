@@ -4,4 +4,15 @@
 
 
 <h1><%= @portfolio.name %></h1>
-<%= link_to 'create new entry', new_portfolio_entry_path(@portfolio), class: 'btn btn-link' %>
+
+  <% @portfolio.entries.each do |entry| %>
+     <p><%= entry.coin.name %></p>
+     <p><%= entry.amount %></p>
+     <p><%= entry.buying_price %></p>
+  <% end %>
+
+  <%= link_to 'create new entry', new_portfolio_entry_path(@portfolio), class: 'btn btn-link' %>
+
+  <%# edit, delete %>
+    <%# <%= link_to "Edit", edit_portfolio_path(entry) %>
+    <%# <%= link_to 'Delete', portfolio_path(entry), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Entry?' } %>

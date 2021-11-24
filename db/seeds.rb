@@ -41,3 +41,4 @@ url_array.each do |coin|
     percentage_24: coin["price_change_percentage_24h"],
   )
 end
+
