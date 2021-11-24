@@ -1,13 +1,21 @@
+.market-table {
+  margin: 0 100px;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  padding: 150px;
+  margin-bottom: 50px;
+
 }
 
 td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+  border-top: 1px solid #dddddd77;
+  border-bottom: 1px solid #dddddd77;
+  text-align: center;
+  padding: 15px;
 }
 
 tr:nth-child(even) {

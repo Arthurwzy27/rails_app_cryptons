@@ -1,20 +1,23 @@
-<table>
-  <tr>
-    <th>Rank</th>
-    <th>Name</th>
-    <th>Symbol</th>
-    <th>Price</th>
-    <th>24h. %</th>
-    <th>Market cap</th>
-  </tr>
-  <% @coins.each do |coin| %>
-  <tr>
-    <td><%= coin["market_cap_rank"] %></td>
-    <td><%= coin["name"] %></td>
-    <td><%= coin["symbol"] %></td>
-    <td><%= coin["current_price"] %> $</td>
-    <td><%= coin["price_change_percentage_24h"] %> %</td>
-    <td><%= coin["market_cap"] %> $</td>
-  </tr>
-  <% end %>
-</table>
+<h1 style="padding: 50px">Today's Cryptocurrency Prices</h1>
+<div class="market-table">
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>24h. %</th>
+      <th>Market cap</th>
+    </tr>
+    <% @coins.each do |coin| %>
+    <tr>
+      <td><%= coin["market_cap_rank"] %></td>
+      <td><%= coin["name"] %></td>
+      <td><%= coin["symbol"] %></td>
+      <td><%= number_with_precision(coin["current_price"], :precision => 2, :delimiter => ',') %> $</td>
+      <td><%= coin["price_change_percentage_24h"] %> %</td>
+      <td><%= number_with_precision(coin["market_cap"], :precision => 2, :delimiter => ',') %> $</td>
+    </tr>
+    <% end %>
+  </table>
+</div>
