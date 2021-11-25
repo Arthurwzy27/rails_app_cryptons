@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 * {
-color: #ffffff;
+  color: #ffffff;
 }
 
 .hero-section {
@@ -13,40 +13,41 @@ color: #ffffff;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 84vh;
   background-repeat: no-repeat;
   background-size: contain;
 
-h1 {
+  h1 {
   font-size: 80px;
-}
+  }
 
-p {
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
-}
+  p {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
 }
 
 .sub-header {
-  margin: 18% 0%;
+  margin: 17% 0%;
   flex-direction: column;
 }
 
 
 
  .middle-page {
-   background-color: black; filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-   margin-top:12rem;
-   width: 100%;
-   left: 0px;
+  background-color: black; filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-top:12rem;
+  width: 100%;
+  left: 0px;
   background-repeat: no-repeat;
+
   h3 {
-  text-align: center;
-  font-size: 43px;
-  line-height: 28px;
+    text-align: center;
+    font-size: 43px;
+    line-height: 28px;
   }
- }
+}
  .bottom-page {
    background-image:asset_url("background2.png"); filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
    background-repeat: no-repeat;
@@ -54,11 +55,12 @@ p {
    height: 500px;
    margin-top:8rem;
    left: 0px;
+
   h4 {
-  text-align: center;
-  font-size: 80px;
-  line-height: 28px;
-  margin-bottom: 3rem;
+    text-align: center;
+    font-size: 80px;
+    line-height: 28px;
+    margin-bottom: 3rem;
   }
  }
 

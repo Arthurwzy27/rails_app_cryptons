@@ -1,9 +1,8 @@
-<h1>Entries#edit</h1>
-<p>Find me in app/views/entries/edit.html.erb</p>
-
-<%= simple_form_for [@portfolio, @entry] do |f| %>
-          <%= f.association :coin, prompt: 'Which crypto you want?', input_html: { class: 'select2' }, disabled: true %>
-          <%= f.input :amount, placeholder: 'Enter the amount you want!' %>
-          <%= f.input :buying_price, placeholder: 'How many do you want to invest?' %>
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
+<div class="main-content">
+  <%= simple_form_for [@portfolio, @entry] do |f| %>
+    <%= f.association :coin, prompt: 'Select a cryptocurrency', input_html: { class: 'select2' }, disabled: true %>
+    <%= f.input :amount, placeholder: 'Enter the amount you want!' %>
+    <%= f.input :buying_price, placeholder: 'How many do you want to invest?' %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>
