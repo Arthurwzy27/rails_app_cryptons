@@ -1,14 +1,24 @@
- <h1>Create a new Portfolio</h1>
-<%= link_to '←', portfolios_path, class: 'btn btn-link' %>
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg rounded p-3 shadow">
-        <%= simple_form_for @portfolio do |f| %>
-          <%= f.input :name, placeholder: 'Enter your portfolio name here' %>
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
+<div class="forms">
+  <h1>Create a new Portfolio</h1>
+  <%= link_to '←', portfolios_path, class: 'btn btn-link' %>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3">
+        <div class="bg rounded p-3 shadow">
+          <%= simple_form_for @portfolio do |f| %>
+            <%= f.input :name, placeholder: 'Enter your portfolio name here' %>
+            <%= f.submit class: 'btn btn-flat' %>
+          <% end %>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="coins-list d-flex">
+        <div class="coins1-card">
+        </div>
+        <div class="coins2-card">
+        </div>
+        <div class="coins3-card">
+        </div>
   </div>
 </div>
