@@ -1,0 +1,10 @@
+.portfolio-show {
+background-color: rgba(255, 0, 0, 0.164);
+
+}
+
+// views/portfolio/show.html.erb
+.entry-info {
+  display: flex;
+  justify-content: space-between;
+}
