@@ -13,3 +13,16 @@ background-color: rgba(255, 0, 0, 0.164);
   display: flex;
   justify-content: space-between;
 }
+
+.card-entries {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.entry-card {
+  width: 250px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  background: grey;
+}
