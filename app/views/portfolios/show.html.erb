@@ -1,37 +1,60 @@
 <div class="main-content">
   <div class="back-add-button">
     <%= link_to '←', portfolios_path, class: 'btn btn-link', style: 'font-size: 40px; text-decoration: none; padding-top: 0; color: #FF14BC' %>
-  <h1><%= @portfolio.name %></h1>
-    <div class="d-flex justify-content-end">
-        <%= link_to new_portfolio_entry_path(@portfolio), class: 'btn btn-flat', style: 'height: 38px' do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
-      </div>
+    <%= link_to new_portfolio_entry_path(@portfolio), class: 'btn btn-flat', style: 'height: 38px' do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
   </div>
 
-<div class="market-table">
-  <table>
-    <tr style="background-color: #202124">
-      <th>Name</th>
-      <th>Symbol</th>
-      <th>Amount</th>
-      <th>Price</th>
-      <th>Total Value</th>
-      <th>P/L</th>
-        <th>Action</th>
-        <th></th>
-    </tr>
-    <% @portfolio.entries.each do |entry| %>
-    <tr>
-      <td><%= link_to entry.coin.name, coin_path, style: 'color: #FF14BC; text-decoration: none' %></td>
-      <td><%= entry.coin.symbol %></td>
-      <td><%= entry.amount %></td>
-      <td><%= entry.buying_price %> $</td>
-      <td><%= entry.amount * entry.buying_price %> $</td>
-      <td><%= entry.amount * entry.buying_price %> $</td>
-      <td><%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_entry_path(entry), class: 'btn btn-cancel' %></td>
-      <td><%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), entry_path(entry), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %></td>
-    </tr>
-    <% end %>
-  </table>
+  <div class="market-table">
+    <div class="row">
+      <div class="col col-lg-6">
+        <div class="card-entries">
+        <% @portfolio.entries.each do |entry| %>
+        <% entry.coin.fetch_data %>
+        <div class="entry-card">
+          <div class="card-symbol"><%= image_tag(entry.coin.image_url, class: "avatar-small mr-2") %><%= entry.coin.symbol.upcase %></div>
+          <div class="card-price text-center"><h3><%= entry.coin.price %></h3></div>
+          <div class="chart"></div>
+          <div class="card-percentage d-flex justify-content-end"><%= entry.coin.percentage_24 %></div>
+        </div>
+        <% end %>
+        </div>
+      </div>
+      <div class="col col-lg-6">
+        <h1><%= @portfolio.name %></h1>
+        <table>
+          <tr style="background-color: #202124">
+            <th>Name</th>
+            <th>Price</th>
+            <th>Holdings</th>
+            <th>P/L</th>
+            <th>Action</th>
+          </tr>
+          <% @portfolio.entries.each do |entry| %>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+              <%= image_tag(entry.coin.image_url, class: "avatar mr-4") %>
+              <%= link_to entry.coin.name, coin_path(entry.coin), style: 'color: #FF14BC; text-decoration: none' %>
+              </div>
+            </td>
+            <td><%= entry.coin.price %> $</td>
+            <td>
+              <p class="m-0"><%= entry.amount * entry.buying_price %> $</p>
+              <small><%= entry.amount %> <%= entry.coin.symbol.upcase %></small>
+            </td>
+            <td><%= entry.amount * entry.buying_price %> $</td>
+            <td>
+            <div class="d-flex justify-content-around">
+              <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_entry_path(entry), class: 'btn btn-cancel' %>
+              <%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), entry_path(entry), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
+            </div>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
