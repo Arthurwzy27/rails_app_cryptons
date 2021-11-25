@@ -7,15 +7,15 @@
 }
 
 .portfolios-card {
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(71, 71, 71, 0.144);
   border-radius: 8px;
   padding: 20px;
+  margin-top: 20px;
 }
 
-.portfolio-card {
-
+.coin-image {
+  width: 75%;
 }
-
 .portfolio-show-header {
   display: flex;
   justify-content: space-between;
@@ -35,6 +35,16 @@
   padding: 3% 5%;
 }
 
-// a{
+.portfolio-links {
+  text-decoration: none;
+  color: white;
+}
 
+.portfolios-text {
+  font-size: 65px;
+  padding-left: 60px;
+}
+
+// .coins-background-portfolio {
+//   position: fixed;
 // }

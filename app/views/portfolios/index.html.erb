@@ -14,25 +14,35 @@
   <% else %>
     <div class="portfolio-index">
       <div class="row">
-        <div class="col col-lg-6">
-          <div class="coins-image"></div>
+        <div class="col col-lg-6 h-100">
+          <div class="">
+              <div class="portfolios-text">
+                <p> Your Portfolios :</p>
+              </div>
+              <div class="coins-background-portfolio">
+                <%= image_tag("coins-image4.png", class: "coin-image") %>
+              </div>
+          </div>
         </div>
         <div class="col col-lg-6">
             <div class="portfolios-card">
-              <% current_user.portfolios.each do |portfolio| %>
-              <div class="portfolio-card d-flex justify-content-between">
-              <%= link_to portfolio_path(portfolio) do %>
-                  <h1><%= portfolio.name %></h1>
+              <table>
+               <tbody>
+                <% current_user.portfolios.each do |portfolio| %>
+                <tr>
+                  <td><%= link_to portfolio.name, portfolio, class:'portfolio-links' %></td>
+                  <td>Total value</td>
+                  <td>
+                    <div class="d-flex justify-content-end">
+                      <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_portfolio_path(portfolio), class: 'btn btn-cancel' %>
+                      <%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
+                    </div>
+                  </td>
+                </tr>
                 <% end %>
-                  <p>Total Value</p>
-                  <p>Profit/Loss</p>
-                  <div class="d-flex justify-content-end">
-                    <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_portfolio_path(portfolio), class: 'btn btn-cancel' %>
-                    <%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
-                  </div>
-              </div>
-              <% end %>
-            </div>
+               </tbody>
+              </table>
+          </div>
         </div>
       </div>
     </div>
