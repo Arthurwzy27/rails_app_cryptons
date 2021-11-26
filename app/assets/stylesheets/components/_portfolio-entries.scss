@@ -8,5 +8,35 @@
   width: 250px;
   padding: 10px 10px;
   border-radius: 8px;
-  background: grey;
+  background: transparent;
+  border: 2px solid #9438FC;
+}
+
+.no-entries {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,40%);
+}
+
+.wrapper {
+  background-image: asset_url("background2.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+
+.select2-results__option {
+  color: black;
+}
+
+.select2-search__field {
+  color: black;
+}
+
+.portfolio-info {
+  h1 {
+    font-size: 60px;
+  }
 }

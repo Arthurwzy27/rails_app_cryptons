@@ -25,12 +25,18 @@ import 'select2/dist/css/select2.css';
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["price", "input", "coins"]
+
   connect() {
     console.log('hello from select2 controller')
-    $(this.element).select2({
-      width: "100%",
-      theme: "classic",
-      color: "#000",
+    $(this.inputTarget).select2({
+      width: "100%"
+    });
+
+    $(this.inputTarget).on('select2:select', (e) => {
+      const coins = JSON.parse(this.coinsTarget.dataset.coins);
+      const selectedCoin = coins.find(element => element["name"] == e.params.data.text)
+      this.priceTarget.value = parseFloat(selectedCoin["price"])
     });
   }
 }
