@@ -5,6 +5,11 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    @portfolio.entries.each do |entry|
+      entry.coin.fetch_data
+      entry.coin.fetch_history
+    end
+
   end
 
   def new
