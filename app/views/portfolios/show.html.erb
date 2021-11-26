@@ -20,11 +20,10 @@
           <div class="col col-lg-6">
             <div class="card-entries">
                 <% @portfolio.entries.each do |entry| %>
-                <% entry.coin.fetch_data %>
               <div class="entry-card">
                 <div class="card-symbol"><%= image_tag(entry.coin.image_url, class: "avatar-small mr-2") %><%= entry.coin.symbol.upcase %></div>
                 <div class="card-price text-center"><h3><%= entry.coin.price %></h3></div>
-                <div class="chart"></div>
+                <canvas class="chart" id="chart" data-history="<%= entry.coin.history_seven %>"></canvas>
                 <div class="card-percentage d-flex justify-content-end"><%= entry.coin.percentage_24 %></div>
               </div>
                 <% end %>
@@ -35,7 +34,7 @@
             <div class="portfolio-info pb-4">
                 <p><%= @portfolio.name %></p>
                 <div class="text-center">
-                  <h1><%= @portfolio.fetch_value.round %> $</h1>
+                  <h1>$ <%= @portfolio.fetch_value.round %></h1>
                 </div>
             </div>
             <table>
@@ -54,12 +53,12 @@
                   <%= link_to entry.coin.name, coin_path(entry.coin), style: 'color: white; text-decoration: none' %>
                   </div>
                 </td>
-                <td><%= entry.coin.price %> $</td>
+                <td>$ <%= entry.coin.price %></td>
                 <td>
-                  <p class="m-0"><%= entry.amount * entry.coin.price %> $</p>
+                  <p class="m-0">$ <%= entry.amount * entry.coin.price %></p>
                   <small><%= entry.amount %> <%= entry.coin.symbol.upcase %></small>
                 </td>
-                <td><%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2) %> $</td>
+                <td>$ <%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2) %></td>
                 <td>
                 <div class="d-flex justify-content-around">
                   <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_entry_path(entry), class: 'btn btn-cancel' %>
