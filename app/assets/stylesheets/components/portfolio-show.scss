@@ -1,9 +1,21 @@
 // views/portfolio/show.html.erb
 
-.portfolio-show {
-background-color: rgba(255, 0, 0, 0.164);
+.coins-image {
+  background-image: asset_url("coins-image.png");
+  height: 100%;
+  background-repeat: no-repeat;
 }
 
+.portfolios-card {
+  background-color: rgba(71, 71, 71, 0.144);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.coin-image {
+  width: 75%;
+}
 .portfolio-show-header {
   display: flex;
   justify-content: space-between;
@@ -13,6 +25,29 @@ background-color: rgba(255, 0, 0, 0.164);
   display: flex;
   justify-content: space-between;
 }
+
+.portfolios-index {
+  background-image: asset_url("background2.png");
+  height: 87vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 3% 5%;
+}
+
+.portfolio-links {
+  text-decoration: none;
+  color: white;
+}
+
+.portfolios-text {
+  font-size: 65px;
+  padding-left: 60px;
+}
+
+// .coins-background-portfolio {
+//   position: fixed;
+// }
 
 .card-entries {
   display: grid;
@@ -26,3 +61,4 @@ background-color: rgba(255, 0, 0, 0.164);
   border-radius: 8px;
   background: grey;
 }
+

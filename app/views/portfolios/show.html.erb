@@ -1,9 +1,11 @@
 <div class="main-content">
   <div class="back-add-button">
+
     <%= link_to '←', portfolios_path, class: 'btn btn-link', style: 'font-size: 40px; text-decoration: none; padding-top: 0; color: #FF14BC' %>
     <%= link_to new_portfolio_entry_path(@portfolio), class: 'btn btn-flat', style: 'height: 38px' do %>
       <i class="fas fa-plus"></i>
     <% end %>
+
   </div>
 
   <div class="market-table">
