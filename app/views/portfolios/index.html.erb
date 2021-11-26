@@ -10,8 +10,10 @@
     </div>
   </div>
   <% if current_user.portfolios.empty? %>
+  <div class="no-entries text-center">
     <h2>Do not have a Portfolio yet... 🤔</h2>
     <h1>Create one now for FREE !</h1>
+  </div>
 
   <% else %>
     <div class="portfolio-index">
