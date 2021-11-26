@@ -2,6 +2,10 @@ class EntriesController < ApplicationController
   def new
     @portfolio = Portfolio.find(params[:portfolio_id])
     @entry = Entry.new
+    @coins = Coin.all.map { |coin| {
+      "name": coin.name,
+      "price": coin.price,
+    }}
   end
 
   def create

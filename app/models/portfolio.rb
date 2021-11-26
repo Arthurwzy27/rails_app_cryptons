@@ -4,4 +4,11 @@ class Portfolio < ApplicationRecord
   has_many :coins, through: :entries
 
   validates :name, presence: true
+
+  def fetch_value
+    values = self.entries.map do |entry|
+      entry.coin.price * entry.amount
+    end
+    values.inject(&:+)
+  end
 end
