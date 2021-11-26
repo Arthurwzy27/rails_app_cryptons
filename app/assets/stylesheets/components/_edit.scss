@@ -1,12 +1,32 @@
-.page-container {
-   background-image:asset_url("background2.png"); filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-   background-repeat: no-repeat;
-   width: 100%;
-   height: 100vh;
-   background-size: cover;
-
-  h3 {
-  color: rgb(0, 0, 0);
-  text-align: center;
-  }
+.forms {
+ background-image: asset_url("background2.png");
+ background-repeat: no-repeat;
+ background-position: bottom;
+ background-size: contain;
+ height: 100vh;
+ overflow: hidden;
 }
+
+  .coins1-card {
+    background-image:asset_url("coins-image1.png");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 13rem;
+    background-position: right top;
+
+}
+  .coins2-card {
+    background-image:asset_url("coins-image2.png");
+    width: 100%;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: 15rem;
+    transform: rotate(45deg);
+}
+  .coins3-card {
+    background-image:asset_url("coins-image3.png");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 22rem;}

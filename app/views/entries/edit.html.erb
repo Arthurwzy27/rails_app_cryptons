@@ -1,8 +1,23 @@
-<div class="main-content">
-  <%= simple_form_for [@portfolio, @entry] do |f| %>
+<div class="forms">
+  <%= link_to '←', portfolios_path, class: 'btn btn-link' %>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3">
+          <h3>Update your Entry</h3>
+ <%= simple_form_for [@portfolio, @entry] do |f| %>
     <%= f.association :coin, prompt: 'Select a cryptocurrency', input_html: { class: 'select2' }, disabled: true %>
     <%= f.input :amount, placeholder: 'Enter the amount you want!' %>
     <%= f.input :buying_price, placeholder: 'How many do you want to invest?' %>
     <%= f.submit class: 'btn btn-flat' %>
   <% end %>
-</div>
+        </div>
+    </div>
+      <div class="coins-list d-flex">
+        <div class="coins1-card">
+        </div>
+        <div class="coins2-card">
+        </div>
+        <div class="coins3-card">
+        </div>
+  </div>
+  </div>

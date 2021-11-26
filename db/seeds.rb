@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Entry.destroy_all
 Coin.destroy_all
 
 # Coin.create!(name: "Bitcoin", symbol: "btc", price: 66000)
@@ -33,11 +33,12 @@ url = RestClient.get 'https://api.coingecko.com/api/v3/coins/markets?vs_currency
 url_array = JSON.parse(url)
 
 url_array.each do |coin|
-  Coin.create(
+  Coin.create!(
     name: coin["name"],
     symbol: coin["symbol"],
     image_url: coin["image"],
     price: coin["current_price"],
     percentage_24: coin["price_change_percentage_24h"],
+    # history_seven:
   )
 end

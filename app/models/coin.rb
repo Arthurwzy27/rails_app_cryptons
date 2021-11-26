@@ -1,9 +1,12 @@
+require 'open-uri'
+require 'json'
+
 class Coin < ApplicationRecord
   has_many :entries
 
   def fetch_data
-    if Date.today - self.created_at > 60000
-      url = "https://api.coingecko.com/api/v3/coins/#{self.name}"
+    if 5.minutes.ago - self.updated_at.time > 300
+      url = "https://api.coingecko.com/api/v3/coins/#{self.name.downcase.delete(" ")}"
       coins_serialized = URI.open(url).read
       data = JSON.parse(coins_serialized)
 
