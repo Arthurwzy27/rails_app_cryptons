@@ -9,7 +9,7 @@
   </div>
   <% if current_user.portfolios.empty? %>
     <h2>Do not have a Portfolio yet... 🤔</h2>
-    <h1>Create one now and for FREE !</h1>
+    <h1>Create one now for FREE !</h1>
 
   <% else %>
     <div class="portfolio-index">
@@ -35,7 +35,7 @@
                   <td>
                     <div class="d-flex justify-content-end">
                       <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_portfolio_path(portfolio), class: 'btn btn-cancel' %>
-                      <%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
+                      <%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), portfolios_path, method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
                     </div>
                   </td>
                 </tr>
