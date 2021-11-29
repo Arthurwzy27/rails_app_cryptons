@@ -22,8 +22,8 @@
                 <% @portfolio.entries.each do |entry| %>
               <div class="entry-card">
                 <div class="card-symbol"><%= image_tag(entry.coin.image_url, class: "avatar-small mr-2") %><%= entry.coin.symbol.upcase %></div>
-                <div class="card-price text-center"><h3><%= entry.coin.price %></h3></div>
-                <canvas class="chart" id="chart" data-history="<%= entry.coin.history_seven %>"></canvas>
+                <div class="card-price text-center"><h3>$ <%= number_with_delimiter(entry.coin.price, delimiter: "'", separator: ",") %></h3></div>
+                <canvas class="chart" id="chart" data-history="<%= entry.coin.history_seven %>"> %</canvas>
                 <div class="card-percentage d-flex justify-content-end"><%= entry.coin.percentage_24 %></div>
               </div>
                 <% end %>
@@ -32,9 +32,9 @@
 
           <div class="col col-lg-6">
             <div class="portfolio-info pb-4">
-                <p><%= @portfolio.name %></p>
+                <h3><%= @portfolio.name %></h3>
                 <div class="text-center">
-                  <h1>$ <%= @portfolio.fetch_value.round %></h1>
+                  <h1>$ <%= number_with_delimiter(@portfolio.fetch_value.round, delimiter: "'", separator: ",") %></h1>
                 </div>
             </div>
             <table>
