@@ -17,24 +17,30 @@
           </div>
           <% else %>
         <div class="row">
-          <div class="col col-lg-6">
+          <div class="col col-lg-7">
             <div class="card-entries">
                 <% @portfolio.entries.each do |entry| %>
               <div class="entry-card">
-                <div class="card-symbol"><%= image_tag(entry.coin.image_url, class: "avatar-small mr-2") %><%= entry.coin.symbol.upcase %></div>
-                <div class="card-price text-center"><h3>$ <%= number_with_delimiter(entry.coin.price, delimiter: "'", separator: ",") %></h3></div>
+                <div class="card-symbol d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <%= image_tag(entry.coin.image_url, class: "avatar-small mr-2") %>
+                    <p class="m-0"><%= entry.coin.symbol.upcase %></p>
+                  </div>
+                  <p class="m-0">7D</p>
+                </div>
+                <div class="card-price text-center"><h3>$ <%= number_with_delimiter(entry.coin.price, delimiter: ",", separator: ".") %></h3></div>
                 <canvas class="chart" id="chart" data-history="<%= entry.coin.history_seven %>"> %</canvas>
-                <div class="card-percentage d-flex justify-content-end"><%= entry.coin.percentage_24 %></div>
+                <div class="card-percentage d-flex justify-content-end"><%= entry.coin.percentage_24.to_f.round(2) %> %</div>
               </div>
                 <% end %>
             </div>
           </div>
 
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
             <div class="portfolio-info pb-4">
                 <h3><%= @portfolio.name %></h3>
                 <div class="text-center">
-                  <h1>$ <%= number_with_delimiter(@portfolio.fetch_value.round, delimiter: "'", separator: ",") %></h1>
+                  <h1>$ <%= number_with_delimiter(@portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></h1>
                 </div>
             </div>
             <table>
@@ -55,8 +61,8 @@
                 </td>
                 <td>$ <%= entry.coin.price %></td>
                 <td>
-                  <p class="m-0">$ <%= entry.amount * entry.coin.price %></p>
-                  <small><%= entry.amount %> <%= entry.coin.symbol.upcase %></small>
+                  <p class="m-0">$ <%= (entry.amount * entry.coin.price).to_f %></p>
+                  <small><%= entry.amount.to_f %> <%= entry.coin.symbol.upcase %></small>
                 </td>
                 <td>$ <%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2) %></td>
                 <td>
