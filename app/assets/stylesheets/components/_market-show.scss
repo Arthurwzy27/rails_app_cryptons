@@ -1,0 +1,30 @@
+.coin-card-symbol {
+  display: flex;
+   h2 {
+     padding: 10px;
+   }
+
+   .symbol-market-show {
+    border: 2px solid grey;
+    height: 50px;
+    width: 60px;
+    h2 {
+      font-size: 20px;
+    }
+   }
+}
+
+.market-item-info {
+  display: grid;
+  .row {
+    grid-template-columns: 1fr 1fr;
+    // grid-gap: 100px;
+    grid-template-rows: repeat(2, 300px);
+    align-content: space-between;
+    justify-content: space-around;
+    h5 {
+      color: #AC7FDD;
+    }
+  }
+
+}

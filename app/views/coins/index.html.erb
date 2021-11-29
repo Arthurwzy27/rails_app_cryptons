@@ -14,8 +14,8 @@
     <tr>
       <td><%= link_to coin.name, coin %></td>
       <td><%= coin.symbol %></td>
-      <td><%= coin.price %> $</td>
-      <td><%= coin.percentage_24 %> %</td>
+      <td><%= number_with_delimiter(coin.price, delimiter: ",", separator: ".") %> $</td>
+      <td><%= coin.percentage_24.to_f.round(2) %> %</td>
     </tr>
     <% end %>
   </table>

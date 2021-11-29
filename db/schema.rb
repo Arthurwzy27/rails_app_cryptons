@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_104324) do
+ActiveRecord::Schema.define(version: 2021_11_29_154010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2021_11_29_104324) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "price"
     t.text "description"
+    t.integer "market_cap_rank"
+    t.bigint "market_cap"
+    t.bigint "total_volume"
+    t.integer "high_24h"
+    t.integer "low_24h"
+    t.bigint "total_supply"
+    t.integer "ath"
+    t.integer "ath_change_percentage"
   end
 
   create_table "entries", force: :cascade do |t|
