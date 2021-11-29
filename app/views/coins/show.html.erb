@@ -32,17 +32,17 @@
           </div>
           <div>
             <h5>Market cap</h5>
-            <p>$ <%= @coin.market_cap %></p>
+            <p>$ <%= number_with_delimiter(@coin.market_cap, delimiter: ",", separator: ".") %></p>
           </div>
         </div>
         <div class="row">
           <div>
             <h5>Total volume</h5>
-            <p><%= @coin.total_volume %></p>
+            <p><%= number_with_delimiter(@coin.total_volume, delimiter: ",", separator: ".") %></p>
           </div>
           <div>
             <h5>Total supply</h5>
-            <p><%= @coin.total_supply %></p>
+            <p><%= number_with_delimiter(@coin.total_supply, delimiter: ",", separator: ".") %></p>
           </div>
         </div>
 
