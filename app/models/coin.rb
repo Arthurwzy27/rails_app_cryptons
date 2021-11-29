@@ -12,6 +12,7 @@ class Coin < ApplicationRecord
 
       self.price = data["market_data"]["current_price"]["usd"]
       self.percentage_24 = data["market_data"]["price_change_percentage_24h"]
+      self.description = data["description"]["en"]
       self.save
     end
   end

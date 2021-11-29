@@ -8,8 +8,8 @@
             <%= simple_form_for [@portfolio, @entry] do |f| %>
             <div class="hidden" data-coins="<%= @coins.to_json %>" data-select2-target="coins"></div>
               <%= f.association :coin, prompt: 'Select a cryptocurrency', input_html: { data: { select2_target: 'input' } } %>
-              <%= f.input :amount, placeholder: 'Enter the amount you want!', collection: 0..100 %>
-              <%= f.input :buying_price, placeholder: 'Buying price: ', input_html: { data: { select2_target: "price" } } %>
+              <%= f.number_field :amount, placeholder: 'Enter the amount you want', step:"0.000001", min:"0" %>
+              <%= f.input :buying_price, placeholder: 'Buying price: $USD', input_html: { data: { select2_target: "price" } } %>
               <%= f.submit class: 'btn btn-flat' %>
             <% end %>
           </div>
