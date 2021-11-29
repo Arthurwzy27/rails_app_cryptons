@@ -14,3 +14,16 @@ td, th {
 tr:nth-child(even) {
   background-color: #00000038;
 }
+
+.market-title{
+text-align: center;
+padding: 40px;
+background-image: linear-gradient(90deg, #6dc7ff, #ff95e1,#9e62ff);
+background-size: 100%;
+background-repeat: repeat;
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-moz-background-clip: text;
+-moz-text-fill-color: transparent;
+}

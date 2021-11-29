@@ -19,6 +19,14 @@
 
   h1 {
   font-size: 80px;
+  background-image: linear-gradient(90deg, #d6efff, #ff9ee4,#d5fbff, #ffa2e5);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
   }
 
   p {
@@ -37,7 +45,7 @@
 
  .middle-page {
   background-color: black; filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  margin-top:12rem;
+  margin-top:8rem;
   width: 100%;
   left: 0px;
   background-repeat: no-repeat;
@@ -45,7 +53,16 @@
   h3 {
     text-align: center;
     font-size: 43px;
-    line-height: 28px;
+    line-height: 46px;
+    background-image: linear-gradient(90deg, #ff9ee4, #d6efff,#ffa2e5,#d5fbff);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+
   }
 }
  .bottom-page {
@@ -58,8 +75,16 @@
   h4 {
     text-align: center;
     font-size: 80px;
-    line-height: 28px;
+    line-height: 70px;
     margin-bottom: 3rem;
+    background-image: linear-gradient(90deg, #d6efff, #ff9ee4,#d5fbff, #ffa2e5);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
   }
  }
 
@@ -67,10 +92,13 @@
   text-align: center;
   width: 60%;
       margin: auto;
+  font-size:22px;
 
  }
   .centering-text-p2 {
   text-align: center;
+  font-size:22px;
+
  }
 
 .button-home {
