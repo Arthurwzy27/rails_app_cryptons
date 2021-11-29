@@ -13,9 +13,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 84vh;
+  height: calc(100vh - 100px);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
   h1 {
   font-size: 80px;
@@ -45,13 +45,10 @@
 
  .middle-page {
   background-color: black; filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  margin-top:8rem;
-  width: 100%;
-  left: 0px;
+  height: 65vh;
   background-repeat: no-repeat;
 
   h3 {
-    text-align: center;
     font-size: 43px;
     line-height: 46px;
     background-image: linear-gradient(90deg, #ff9ee4, #d6efff,#ffa2e5,#d5fbff);
@@ -62,16 +59,44 @@
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-
   }
 }
+
+.middle-page__content {
+  width: 75%;
+  .left-column {
+    width: 100%
+  }
+  .right-column {
+    width: 100%;
+    text-align: right;
+  }
+  .action-button {
+    border-style: solid;
+    border-width: 2px;
+    border-image: linear-gradient(90deg, #ff9ee4, #d6efff,#ffa2e5,#d5fbff) 1;
+    padding: 0.45em 1em;
+    border-radius: 0.25em;
+    color: white;
+  }
+  .action-button:hover {
+    box-shadow: inset 0 0 0.5em 0 #ff9ee4, 0 0 0.5em 0 #ffa2e5;
+    text-decoration: none;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 5%;
+  }
+}
+
  .bottom-page {
    background-image:asset_url("background2.png"); filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
    background-repeat: no-repeat;
    width: 100%;
-   height: 500px;
-   margin-top:8rem;
-   left: 0px;
+   height: 50vh;
+   margin-top:12rem;
+   background-position: center;
+   background-size: contain;
   h4 {
     text-align: center;
     font-size: 80px;
@@ -85,6 +110,23 @@
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
+  }
+  .coin-image1, .coin-image2, .coin-image3 {
+    position: absolute;
+  }
+
+  .coin-image1 {
+    top: -30%;
+    right: 5%;
+  }
+  .coin-image2 {
+    top: 0;
+    right: 0;
+    width: 23%;
+  }
+
+  .coin-image3 {
+    top: -55%;
   }
  }
 
