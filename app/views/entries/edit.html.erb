@@ -1,23 +1,27 @@
-<div class="forms">
-  <%= link_to '←', portfolios_path, class: 'btn btn-link' %>
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-lg-3">
+<div class="main-content">
+  <div class="back-button">
+    <%= link_to '←', portfolios_path, class: 'btn btn-link' %>
+  </div>
+  <div class="forms">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md-6 offset-lg-3">
           <h3>Update your Entry</h3>
- <%= simple_form_for [@portfolio, @entry] do |f| %>
-    <%= f.association :coin, prompt: 'Select a cryptocurrency', input_html: { class: 'select2' }, disabled: true %>
-    <%= f.input :amount, placeholder: 'Enter the amount you want!' %>
-    <%= f.input :buying_price, placeholder: 'How many do you want to invest?' %>
-    <%= f.submit class: 'btn btn-flat' %>
-  <% end %>
+          <%= simple_form_for [@portfolio, @entry] do |f| %>
+            <%= f.association :coin, prompt: 'Select a cryptocurrency', input_html: { class: 'select2' }, disabled: true %>
+            <%= f.input :amount, placeholder: 'Enter the amount you want!' %>
+            <%= f.input :buying_price, placeholder: 'How many do you want to invest?' %>
+            <div class="button-add-center">
+              <%= f.submit class: 'btn btn-flat' %>
+            </div>
+          <% end %>
         </div>
-    </div>
+      </div>
       <div class="coins-list d-flex">
-        <div class="coins1-card">
-        </div>
-        <div class="coins2-card">
-        </div>
-        <div class="coins3-card">
-        </div>
+        <div class="coins1-card"></div>
+        <div class="coins2-card"></div>
+        <div class="coins3-card"></div>
+      </div>
+    </div>
   </div>
-  </div>
+</div>
