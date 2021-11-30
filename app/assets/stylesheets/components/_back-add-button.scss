@@ -1,5 +1,38 @@
-.back-add-button {
+.back-add-button > a {
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
+  color: white;
+  font-size: 30px;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+.back-button-coin-show > a {
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.back-button > a {
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.button-add-center {
+  text-align: center;
 }

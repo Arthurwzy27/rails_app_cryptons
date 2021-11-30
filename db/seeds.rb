@@ -1,30 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+
+puts "Detroyng database..."
+
 Entry.destroy_all
 Coin.destroy_all
-
-# Coin.create!(name: "Bitcoin", symbol: "btc", price: 66000)
-
 User.destroy_all
 Portfolio.destroy_all
 
-user_one = User.create!(email: "1@1.com", password: "123456")
+sleep 1
+puts "Databse destroyed..."
+sleep 1
 
-
-# Create seed from Coingecko API for new entry
-
-require 'rest-client'
-
+puts "Fetching Info..."
 url = RestClient.get 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
 url_array = JSON.parse(url)
 
+sleep 1
+puts "Creating Coins..."
+puts ""
+puts "------------------------------------------------------"
 url_array.each do |coin|
-  Coin.create!(
+  coin = Coin.create!(
     name: coin["name"],
     symbol: coin["symbol"],
     image_url: coin["image"],
@@ -39,4 +35,20 @@ url_array.each do |coin|
     ath: coin["ath"],
     ath_change_percentage: coin["ath_change_percentage"]
   )
+  puts "Created #{coin.name}"
 end
+
+sleep 1
+puts ""
+puts "------------------------------------------------------"
+puts ""
+puts "Creating User..."
+user_one = User.create!(email: "1@1.com", password: "123456")
+sleep 1
+puts "#{user_one.email} Created..."
+sleep 1
+puts ""
+puts "------------------------------------------------------"
+puts "#{Coin.all.count} Coins Created."
+puts "#{User.all.count} Users Created."
+puts "------------------------------------------------------"
