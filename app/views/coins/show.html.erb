@@ -12,7 +12,7 @@
               <h2><%= image_tag(@coin.image_url, class: "avatar-small mr-2") %></h2>
               <h2><%= @coin.name.capitalize %></h2>
             </div>
-            <div>
+            <div style="text-align: center"><small>Current price</small>
               <div class="coin-card-price d-flex align-items-baseline">
                 <h1 class="mr-3">$ <%= number_with_delimiter(@coin.price, delimiter: ",", separator: ".") %></h1>
                 <% icon = @coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %>
