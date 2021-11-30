@@ -1,22 +1,21 @@
 <%# Market page with all coins  %>
-<div class="market-title">
-  <h1>More than a Market. Your next market reference!</h1>
-</div>
-<div class="market-table">
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Symbol</th>
-      <th>Price</th>
-      <th>24h. %</th>
-    </tr>
-    <% @coins.each do |coin| %>
-    <tr>
-      <td><%= link_to coin.name, coin %></td>
-      <td><%= coin.symbol %></td>
-      <td><%= coin.price %> $</td>
-      <td><%= coin.percentage_24 %> %</td>
-    </tr>
-    <% end %>
-  </table>
-</div>
+
+  <div class="market-title">
+    <h1>More than a Market. Your next market reference!</h1>
+  </div>
+    <table class="table-market">
+      <tr>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Price</th>
+        <th>24h. %</th>
+      </tr>
+      <% @coins.each do |coin| %>
+      <tr>
+        <td><%= link_to coin.name, coin %></td>
+        <td><%= coin.symbol.upcase %></td>
+        <td><%= coin.price %> $</td>
+        <td><%= coin.percentage_24 %> %</td>
+      </tr>
+      <% end %>
+    </table>
