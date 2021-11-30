@@ -5,6 +5,7 @@
   </div>
     <table class="table-market">
       <tr>
+        <th>Rank</th>
         <th>Name</th>
         <th>Symbol</th>
         <th>Price</th>
@@ -12,10 +13,11 @@
       </tr>
       <% @coins.each do |coin| %>
       <tr>
+        <td><%= (coin.market_cap_rank) %></td>
         <td><%= link_to coin.name, coin %></td>
         <td><%= coin.symbol.upcase %></td>
         <td><%= coin.price %> $</td>
-        <td><%= coin.percentage_24 %> %</td>
+        <td><%= coin.percentage_24.to_f.round(2) %> %</td>
       </tr>
       <% end %>
     </table>

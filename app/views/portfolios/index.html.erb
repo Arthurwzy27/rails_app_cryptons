@@ -35,7 +35,10 @@
                 <% current_user.portfolios.each do |portfolio| %>
                 <tr>
                   <td><%= link_to portfolio.name, portfolio, class:'portfolio-links' %></td>
-                  <td>Total value</td>
+                  <td>
+                    <small>Total value</small>
+                    <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></p>
+                  </td>
                   <td>
                     <div class="d-flex justify-content-end">
                       <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_portfolio_path(portfolio), class: 'btn btn-cancel' %>

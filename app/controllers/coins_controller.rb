@@ -1,6 +1,6 @@
 class CoinsController < ApplicationController
   def index
-    @coins = Coin.all
+    @coins = Coin.all.order(:market_cap_rank)
   end
 
   def show
