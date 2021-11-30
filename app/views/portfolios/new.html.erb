@@ -8,7 +8,9 @@
       <div class="col-12 col-md-6 offset-lg-3">
           <%= simple_form_for @portfolio do |f| %>
             <%= f.input :name, placeholder: 'Enter your portfolio name here' %>
-            <%= f.submit class: 'btn btn-flat' %>
+            <div class="d-flex align-items-center justify-content-center mt-5">
+              <%= f.submit class: 'btn btn-flat' %>
+            </div>
           <% end %>
       </div>
     </div>
