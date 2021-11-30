@@ -9,6 +9,13 @@ class Portfolio < ApplicationRecord
     values = self.entries.map do |entry|
       entry.coin.price * entry.amount
     end
-    values.inject(&:+)
+    values.inject(&:+) || 0
+  end
+
+  def fetch_gain
+    values = self.entries.map do |entry|
+      (entry.coin.price * entry.amount) - (entry.amount * entry.buying_price)
+    end
+    values.sum || 0
   end
 end

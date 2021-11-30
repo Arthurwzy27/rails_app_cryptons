@@ -2,70 +2,73 @@
 <div class="main-content">
   <div class="back-add-button"><%= link_to '←', coins_path, class: 'btn btn-link' %></div>
   <div class="coin-card-symbol">
-    <h2><%= image_tag(@coin.image_url, class: "avatar-small mr-2") %></h2>
-    <h2><%= @coin.name.capitalize %></h2>
-    <div class="symbol-market-show">
       <h2><%= @coin.symbol.upcase %></h2>
-    </div>
-  </div>
-
-  <div class="coin-card-price text-center">
-    <p>Current Price </p>
-    <h1>$ <%= number_with_delimiter(@coin.price, delimiter: ",", separator: ".") %></h1>
-  </div>
-  <div class="coin-card-percentage text-center">
-    <p>24h %</p>
-    <p><%= number_with_delimiter(@coin.percentage_24, delimiter: ",", separator: ".") %> %</p>
   </div>
   <div class="container-graph-key-point">
     <div class="row">
-      <div class="col col-lg-8">
-        <canvas class="chart" data-history="<%= @coin.history_seven %>" height="80px" width="250px"></canvas>
-      </div>
-      <div class="col col-lg-4 text-center">
-        <h2>Key points about <%= @coin.name.capitalize %></h2>
-        <div class="market-item-info text-center">
-          <div class="row">
-            <div>
-              <h5>Rank</h5>
-              <p><%= @coin.market_cap_rank %></p>
+      <div class="col col-lg-7">
+          <div class="d-flex justify-content-between mb-4">
+            <div class="d-flex align-items-center">
+              <h2><%= image_tag(@coin.image_url, class: "avatar-small mr-2") %></h2>
+              <h2><%= @coin.name.capitalize %></h2>
             </div>
             <div>
-              <h5>Market cap</h5>
-              <p>$ <%= number_with_delimiter(@coin.market_cap, delimiter: ",", separator: ".") %></p>
+              <div class="coin-card-price d-flex align-items-baseline">
+                <h1 class="mr-3">$ <%= number_with_delimiter(@coin.price, delimiter: ",", separator: ".") %></h1>
+                <% icon = @coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %>
+                <i class='<%= "fas fa-chevron-#{icon} #{icon} mr-2" %>'></i><p class="<%= @coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %> m-0"><%= number_with_delimiter(@coin.percentage_24.to_f.round(2), delimiter: ",", separator: ".") %> %</p>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div>
-              <h5>Total volume</h5>
-              <p><%= number_with_delimiter(@coin.total_volume, delimiter: ",", separator: ".") %></p>
+        <canvas class="chart" data-history="<%= @coin.history_seven %>"></canvas>
+      </div>
+      <div class="col col-lg-4 text-center ml-auto">
+        <div class="d-flex coin-info">
+          <h2 class="mb-4">Key points about <%= @coin.name.capitalize %></h2>
+          <div class="market-item-info text-center">
+            <div class="row">
+              <div class="col-sm-6 text-align-center">
+                <h5>Rank</h5>
+                <p><%= @coin.market_cap_rank %></p>
+              </div>
+              <div class="col-sm-6 text-align-center">
+                <h5>Market cap</h5>
+                <p>$ <%= number_with_delimiter(@coin.market_cap, delimiter: ",", separator: ".") %></p>
+              </div>
             </div>
-            <div>
-              <h5>Total supply</h5>
-              <p><%= number_with_delimiter(@coin.total_supply, delimiter: ",", separator: ".") %></p>
+            <div class="row">
+              <div class="col-sm-6 text-align-center">
+                <h5>Total volume</h5>
+                <p><%= number_with_delimiter(@coin.total_volume, delimiter: ",", separator: ".") %></p>
+              </div>
+              <div class="col-sm-6 text-align-center">
+                <h5>Total supply</h5>
+                <p><%= number_with_delimiter(@coin.total_supply, delimiter: ",", separator: ".") %></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 text-align-center">
+                <h5>High 24h</h5>
+                <p>$ <%= number_with_delimiter(@coin.high_24h, delimiter: ",", separator: ".") %></p>
+              </div>
+              <div class="col-sm-6 text-align-center">
+                <h5>Low 24h</h5>
+                <p>$ <%= number_with_delimiter(@coin.low_24h, delimiter: ",", separator: ".") %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 text-align-center">
+                <h5>Ath</h5>
+                <p>$ <%= number_with_delimiter(@coin.ath, delimiter: ",", separator: ".") %></p>
+              </div>
+              <div class="col-sm-6 text-align-center">
+                <h5>Ath change (%)</h5>
+                <p><%= @coin.ath_change_percentage %> %</p>
+              </div>
             </div>
           </div>
 
-          <div class="row">
-            <div>
-              <h5>High 24h</h5>
-              <p>$ <%= number_with_delimiter(@coin.high_24h, delimiter: ",", separator: ".") %></p>
-            </div>
-            <div>
-              <h5>Low 24h</h5>
-              <p>$ <%= number_with_delimiter(@coin.low_24h, delimiter: ",", separator: ".") %></p>
-            </div>
-          </div>
-          <div class="row">
-            <div>
-              <h5>Ath</h5>
-              <p>$ <%= number_with_delimiter(@coin.ath, delimiter: ",", separator: ".") %></p>
-            </div>
-            <div>
-              <h5>Ath change (%)</h5>
-              <p><%= @coin.ath_change_percentage %> %</p>
-            </div>
-          </div>
         </div>
 
 
@@ -78,6 +81,6 @@
   </div>
   <div class="market-description">
     <h2>Description of <%= @coin.name.capitalize %></h2>
-    <p><%= @coin.description %></p>
+    <p><%= @coin.description.html_safe %></p>
   </div>
 </div>

@@ -61,10 +61,10 @@
                 </td>
                 <td>$ <%= entry.coin.price %></td>
                 <td>
-                  <p class="m-0">$ <%= number_with_delimiter((entry.amount * entry.coin.price).to_f, delimiter: ",", separator: ".") %></p>
-                  <small><%= entry.amount.to_f %> <%= entry.coin.symbol.upcase %></small>
+                  <p class="m-0">$ <%= number_with_delimiter((entry.amount * entry.coin.price).round(2), delimiter: ",", separator: ".") %></p>
+                  <small><%= entry.amount.round(5) %> <%= entry.coin.symbol.upcase %></small>
                 </td>
-                <td>$ <%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2) %></td>
+                <td>$ <%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(5) %></td>
                 <td>
                 <div class="d-flex justify-content-around">
                   <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_entry_path(entry), class: 'btn btn-cancel' %>

@@ -1,47 +1,61 @@
 .coin-card-symbol {
   display: flex;
+  align-items: center;
+  justify-content: end;
    h2 {
+     font-size: 20px;
+     border: 2px solid grey;
+     height: 50px;
+     margin: 0;
      padding: 10px;
    }
 
-   .symbol-market-show {
+  }
 
+  .container-graph-key-point {
     h2 {
-      font-size: 20px;
-      border: 2px solid grey;
-      height: 50px;
+      margin: 0;
     }
-   }
-}
+  }
 
 .market-item-info {
-  display: inline-block;
-  justify-content: space-around;
-  width: 100%;
-  .row {
-    // grid-template-columns: 1fr 1fr;
-    // grid-gap: 100px;
-    // grid-template-rows: repeat(2, 300px);
-    align-content: space-between;
-    justify-content: space-around;
-    h5 {
-      color: #AC7FDD;
-    }
+  width: 90%;
+  margin: 0 auto;
+  h5 {
+    color: #AC7FDD;
   }
 }
 
+.coin-info {
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 24px 0px;
+  box-shadow: 0px 0px 24px purple;
+}
 
 
 .market-description {
-  padding: 50px;
+  margin-top: 7%;
   h2 {
-    padding: 50px;
   }
   p {
     text-align: justify;
+    font-size: 20px;
   }
 }
 
 .container-graph-key-point {
   padding-top: 50px;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
 }
