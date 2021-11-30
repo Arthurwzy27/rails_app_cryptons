@@ -41,6 +41,7 @@
 .market-description {
   margin-top: 7%;
   h2 {
+    padding-bottom: 25px;
   }
   p {
     text-align: justify;
@@ -58,4 +59,14 @@
 
 .down {
   color: red;
+}
+
+td > a {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: white;
+
+  }
 }

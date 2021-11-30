@@ -6,7 +6,7 @@ class Coin < ApplicationRecord
   acts_as_favoritable
 
   def fetch_data
-    if 1.second.ago - self.updated_at > 120
+    if 1.second.ago - self.updated_at > 60
       url = "https://api.coingecko.com/api/v3/coins/#{self.name.downcase.delete(" ")}"
       coins_serialized = URI.open(url).read
       data = JSON.parse(coins_serialized)
