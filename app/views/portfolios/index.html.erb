@@ -35,11 +35,14 @@
                   <td><%= link_to portfolio.name, portfolio, class:'portfolio-links' %></td>
                   <td>
                     <small>Total value</small>
-                    <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></p>
+                    <% if current_user.portfolios.empty? %>
+                    <% else %>
+                      <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></p>
+                    <% end %>
                   </td>
                   <td>
                     <small>P/L</small>
-                    <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></p>
+                    <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_gain.round(2), delimiter: ",", separator: ".") %></p>
                   </td>
                   <td>
                     <div class="d-flex justify-content-end">
