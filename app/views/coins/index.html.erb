@@ -13,7 +13,7 @@
       <% @coins.each do |coin| %>
       <tr>
         <td><%= link_to coin.name, coin %></td>
-        <td><%= coin.symbol %></td>
+        <td><%= coin.symbol.upcase %></td>
         <td><%= coin.price %> $</td>
         <td><%= coin.percentage_24 %> %</td>
       </tr>
