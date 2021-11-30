@@ -3,7 +3,7 @@ class Portfolio < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :coins, through: :entries
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def fetch_value
     values = self.entries.map do |entry|

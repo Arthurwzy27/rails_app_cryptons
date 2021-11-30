@@ -13,8 +13,7 @@
     <p>Current Price </p>
     <h1>$ <%= number_with_delimiter(@coin.price, delimiter: ",", separator: ".") %></h1>
   </div>
-
-  <div class="coin-card-percentage">
+  <div class="coin-card-percentage text-center">
     <p>24h %</p>
     <p><%= number_with_delimiter(@coin.percentage_24, delimiter: ",", separator: ".") %> %</p>
   </div>
@@ -25,7 +24,6 @@
       </div>
       <div class="col col-lg-4 text-center">
         <h2>Key points about <%= @coin.name.capitalize %></h2>
-
         <div class="market-item-info text-center">
           <div class="row">
             <div>
@@ -51,11 +49,11 @@
           <div class="row">
             <div>
               <h5>High 24h</h5>
-              <p>$ <%= @coin.high_24h %></p>
+              <p>$ <%= number_with_delimiter(@coin.high_24h, delimiter: ",", separator: ".") %></p>
             </div>
             <div>
               <h5>Low 24h</h5>
-              <p>$ <%= @coin.low_24h %></p>
+              <p>$ <%= number_with_delimiter(@coin.low_24h, delimiter: ",", separator: ".") %></p>
             </div>
           </div>
           <div class="row">
@@ -69,6 +67,12 @@
             </div>
           </div>
         </div>
+
+
+
+
+
+
       </div>
     </div>
   </div>

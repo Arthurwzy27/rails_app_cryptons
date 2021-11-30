@@ -15,11 +15,13 @@
 }
 
 .market-item-info {
-  display: grid;
+  display: inline-block;
+  justify-content: space-around;
+  width: 100%;
   .row {
-    grid-template-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
     // grid-gap: 100px;
-    grid-template-rows: repeat(2, 300px);
+    // grid-template-rows: repeat(2, 300px);
     align-content: space-between;
     justify-content: space-around;
     h5 {
@@ -27,6 +29,8 @@
     }
   }
 }
+
+
 
 .market-description {
   padding: 50px;
