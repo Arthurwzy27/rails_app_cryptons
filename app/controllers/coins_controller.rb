@@ -8,4 +8,15 @@ class CoinsController < ApplicationController
     @coin.fetch_data
   end
 
+  def get_follow
+    @coin = Coin.find(params[:coin_id])
+    current_user.favorite(@coin)
+    redirect_to request.referrer
+  end
+
+  def get_unfollow
+    @coin = Coin.find(params[:coin_id])
+    current_user.unfavorite(@coin)
+    redirect_to request.referrer
+  end
 end

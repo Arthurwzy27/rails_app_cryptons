@@ -66,3 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ADDED MANUALLY
 
 gem 'rest-client'
+gem 'acts_as_favoritor'

@@ -13,7 +13,27 @@
       </tr>
       <% @coins.each do |coin| %>
       <tr>
-        <td><%= (coin.market_cap_rank) %></td>
+
+        <td>
+        <div class="d-flex">
+        <% if signed_in? %>
+          <% if coin.favorited_by?(current_user) %>
+            <%= link_to coin_unfavorite_path(coin), method: "post", remote: true do  %>
+              <i class="fas fa-star mr-3"></i>
+            <% end %>
+          <% else %>
+            <%= link_to coin_favorite_path(coin), method: "post", remote: true do  %>
+              <i class="far fa-star mr-3"></i>
+            <% end %>
+          <% end %>
+        <% else %>
+            <%= link_to new_session_path do  %>
+              <i class="far fa-star mr-3"></i>
+            <% end %>
+        <% end %>
+          <%= coin.market_cap_rank %>
+        </div>
+        </td>
         <td><%= link_to coin.name, coin %></td>
         <td><%= coin.symbol.upcase %></td>
         <td><%= coin.price %> $</td>
