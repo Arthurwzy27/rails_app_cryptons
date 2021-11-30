@@ -1,5 +1,5 @@
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+// import { Chart, registerables } from 'chart.js';
+// Chart.register(...registerables);
 
 const buildChart = (data, graph) => {
 
