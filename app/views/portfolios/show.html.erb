@@ -61,7 +61,7 @@
                 </td>
                 <td>$ <%= entry.coin.price %></td>
                 <td>
-                  <p class="m-0">$ <%= (entry.amount * entry.coin.price).to_f %></p>
+                  <p class="m-0">$ <%= number_with_delimiter((entry.amount * entry.coin.price).to_f, delimiter: ",", separator: ".") %></p>
                   <small><%= entry.amount.to_f %> <%= entry.coin.symbol.upcase %></small>
                 </td>
                 <td>$ <%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2) %></td>

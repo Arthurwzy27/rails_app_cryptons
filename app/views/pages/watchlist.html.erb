@@ -1,0 +1,40 @@
+<div class="market-title">
+  <h1>Keep track of your favorite coins!</h1>
+</div>
+<table class="table-market">
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Price</th>
+    <th>24h. %</th>
+  </tr>
+  <% @favorites.each do |coin| %>
+    <tr>
+      <td>
+        <div class="d-flex">
+          <% if signed_in? %>
+            <% if current_user.favorited?(coin) %>
+              <%= link_to coin_unfavorite_path(coin), method: "post", remote: true do  %>
+                <i class="fas fa-star mr-3"></i>
+              <% end %>
+            <% else %>
+              <%= link_to coin_favorite_path(coin), method: "post", remote: true do  %>
+                <i class="far fa-star mr-3"></i>
+              <% end %>
+            <% end %>
+          <% else %>
+              <%= link_to new_session_path do  %>
+                <i class="far fa-star mr-3"></i>
+              <% end %>
+          <% end %>
+            <%= coin.market_cap_rank %>
+        </div>
+      </td>
+      <td><%= link_to coin.name, coin %></td>
+      <td><%= coin.symbol.upcase %></td>
+      <td><%= coin.price %> $</td>
+      <td><%= coin.percentage_24.to_f.round(2) %> %</td>
+    </tr>
+  <% end %>
+</table>

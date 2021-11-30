@@ -3,6 +3,7 @@ require 'json'
 
 class Coin < ApplicationRecord
   has_many :entries
+  acts_as_favoritable
 
   def fetch_data
     if 1.second.ago - self.updated_at > 120

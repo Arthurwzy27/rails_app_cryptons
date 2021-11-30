@@ -40,6 +40,10 @@
                     <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></p>
                   </td>
                   <td>
+                    <small>P/L</small>
+                    <p class="m-0">$ <%= number_with_delimiter(portfolio.fetch_value.round(2), delimiter: ",", separator: ".") %></p>
+                  </td>
+                  <td>
                     <div class="d-flex justify-content-end">
                       <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_portfolio_path(portfolio), class: 'btn btn-cancel' %>
                       <%= link_to image_tag('delete-icon.png', class: 'icon-edit-delete'), portfolio_path(portfolio), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Portfolio?' } %>
