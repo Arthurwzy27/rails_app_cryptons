@@ -12,8 +12,13 @@
 
   }
 
+  .card-gray-bg {
+    background-color: #00000066;
+    border-radius: 8px;
+  }
+
   .chart {
-    background-color: #ffffff09;
+    // background-color: #ffffff09;
   }
 
   .container-graph-key-point {
@@ -37,16 +42,16 @@
   height: 100%;
   width: 100%;
   border-radius: 8px;
-  background-color: transparent;
+  // background-color: transparent;
   padding: 24px 0px;
-  box-shadow: 0px 0px 24px #FF14BC;
+  // box-shadow: 0px 0px 24px purple;
   h2 {
     font-family: "Work Sans", sans-serif;
   }
 }
 
 .market-description {
-  margin-top: 7%;
+  // margin-top: 7%;
   h2 {
     padding-bottom: 25px;
   }

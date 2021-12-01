@@ -1,12 +1,11 @@
 .backgroundwatch {
-background-image: asset_url("background2.png");
-// height: 87vh;
-background-size: contain;
-background-repeat: no-repeat;
-background-position: bottom;
-padding: 3% 5%;
-  a {
-    color: white;
-    text-decoration: none;
-  }
+  background-image: asset_url("background2.png");
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: calc(100vh);
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
 }
