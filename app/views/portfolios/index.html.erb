@@ -46,12 +46,16 @@
                   </td>
                   <td>
                     <small>Percentage</small>
-                    <% icon = (portfolio.fetch_gain / portfolio.fetch_value) * 100 > 0 ? "up" : "down" %>
-                    <div class="d-flex align-items-center justify-content-center">
-                      <i class='<%= "fas fa-chevron-#{icon} #{icon} mr-2" %>'></i>
-                      <p class="<%= (portfolio.fetch_gain / portfolio.fetch_value) * 100 > 0 ? "up" : "down" %> m-0">
-                      <%= ((portfolio.fetch_gain / portfolio.fetch_value) * 100).round(2) %> %</p>
-                    </div>
+                    <% if portfolio.fetch_value != 0 %>
+                      <% icon = (portfolio.fetch_gain / portfolio.fetch_value) * 100 > 0 ? "up" : "down" %>
+                      <div class="d-flex align-items-center justify-content-center">
+                        <i class='<%= "fas fa-chevron-#{icon} #{icon} mr-2" %>'></i>
+                        <p class="<%= (portfolio.fetch_gain / portfolio.fetch_value) * 100 > 0 ? "up" : "down" %> m-0">
+                        <%= ((portfolio.fetch_gain / portfolio.fetch_value) * 100).round(2) %> %</p>
+                      </div>
+                    <% else %>
+                      <p class="m-0">0 %</p>
+                    <% end %>
                   </td>
                   <td>
                     <div class="d-flex justify-content-end">
