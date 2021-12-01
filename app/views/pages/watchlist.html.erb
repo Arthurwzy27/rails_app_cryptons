@@ -32,10 +32,24 @@
               <%= coin.market_cap_rank %>
           </div>
         </td>
-        <td><%= link_to coin.name, coin %></td>
+        <td>
+          <div class="coin-logo-favorite">
+            <div class="d-flex align-items-center justify-content-start">
+              <h2><%= image_tag(coin.image_url, class: "avatar-small mr-2") %></h2>
+              <%= link_to coin.name, coin %>
+            </div>
+          </div>
+        </td>
         <td><%= coin.symbol.upcase %></td>
-        <td><%= coin.price %> $</td>
-        <td><%= coin.percentage_24.to_f.round(2) %> %</td>
+        <td><%= number_with_delimiter(coin.price.round(2), delimiter: ",", separator: ".") %> $</td>
+        <td>
+        <% icon = coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %>
+        <div class="d-flex align-items-center justify-content-center">
+          <i class='<%= "fas fa-chevron-#{icon} #{icon} mr-2" %>'></i>
+          <p class="<%= coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %> m-0">
+          <%= coin.percentage_24.to_f.round(2) %> %
+        </div>
+        </td>
       </tr>
     <% end %>
   </table>
