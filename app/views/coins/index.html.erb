@@ -15,7 +15,7 @@
       <tr>
 
         <td>
-        <div class="d-flex">
+        <div class="d-flex justify-content-center">
         <% if signed_in? %>
           <% if coin.favorited_by?(current_user) %>
             <%= link_to coin_unfavorite_path(coin), method: "post", remote: true do  %>
