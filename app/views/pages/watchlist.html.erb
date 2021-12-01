@@ -13,7 +13,7 @@
     <% @favorites.each do |coin| %>
       <tr>
         <td>
-          <div class="d-flex">
+          <div class="d-flex justify-content-center">
             <% if signed_in? %>
               <% if current_user.favorited?(coin) %>
                 <%= link_to coin_unfavorite_path(coin), method: "post", remote: true do  %>
@@ -29,7 +29,7 @@
                   <i class="far fa-star mr-3"></i>
                 <% end %>
             <% end %>
-              <%= coin.market_cap_rank %>
+            <%= coin.market_cap_rank %>
           </div>
         </td>
         <td>
