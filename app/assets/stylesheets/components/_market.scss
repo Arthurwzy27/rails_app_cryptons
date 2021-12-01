@@ -27,6 +27,20 @@ td, th {
   &:hover {
     background-color: #ffffff13;
   }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.coin-logo-market {
+  position: relative;
+  left: 120px;
+}
+
+.coin-logo-favorite {
+  position: relative;
+  left: 90px;
 }
 
 tr:nth-child(even) {
