@@ -1,5 +1,3 @@
-<%# Market page with all coins  %>
-
 <div class="market-title">
   <h1>More than a Market. Your next market reference!</h1>
 </div>
@@ -34,7 +32,15 @@
             <%= coin.market_cap_rank %>
         </div>
       </td>
-      <td><%= link_to coin.name, coin %></td>
+        <td>
+          <div class="coin-logo-market">
+            <div class="d-flex align-items-center justify-content-start">
+              <h2><%= image_tag(coin.image_url, class: "avatar-small mr-2") %></h2>
+              <%= link_to coin.name, coin %>
+            </div>
+          </div>
+        </td>
+
       <td><%= coin.symbol.upcase %></td>
       <td>$ <%= number_with_delimiter(coin.price, delimiter: ",", separator: ".") %></td>
       <td>

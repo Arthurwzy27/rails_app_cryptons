@@ -26,7 +26,7 @@
   width: 90%;
   margin: 0 auto;
   h5 {
-    color: #AC7FDD;
+    color: #FF14BC;
   }
 }
 
@@ -38,7 +38,7 @@
   border-radius: 8px;
   background-color: transparent;
   padding: 24px 0px;
-  box-shadow: 0px 0px 24px purple;
+  box-shadow: 0px 0px 24px #FF14BC;
 }
 
 .market-description {
@@ -50,6 +50,13 @@
     text-align: justify;
     font-size: 20px;
     padding-bottom: 60px;
+    a {
+      color: #FF14BC;
+      text-decoration: none;
+      &:hover {
+        color: #FF14BC;
+      }
+    }
   }
 }
 
