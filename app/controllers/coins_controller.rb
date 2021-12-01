@@ -6,6 +6,7 @@ class CoinsController < ApplicationController
   def show
     @coin = Coin.find(params[:id])
     @coin.fetch_data
+    @coin.fetch_history
   end
 
   def get_follow

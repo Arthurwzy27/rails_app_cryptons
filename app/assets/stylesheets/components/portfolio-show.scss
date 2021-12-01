@@ -15,6 +15,7 @@
 
 .coin-image {
   width: 75%;
+  animation: floateffect 4s infinite;
 }
 .portfolio-show-header {
   display: flex;
@@ -28,13 +29,16 @@
 
 .portfolios-index {
   background-image: asset_url("background2.png");
-  height: 87vh;
+  height: calc(100vh - 100px);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
   padding: 3% 5%;
   overflow: hidden;
+}
 
+.portfolio-index {
+  margin-top: 50px;
 }
 
 .portfolio-links {
