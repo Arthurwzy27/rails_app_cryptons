@@ -1,43 +1,50 @@
 <%# Market page with all coins  %>
 
-  <div class="market-title">
-    <h1>More than a Market. Your next market reference!</h1>
-  </div>
-    <table class="table-market">
-      <tr>
-        <th>Rank</th>
-        <th>Name</th>
-        <th>Symbol</th>
-        <th>Price</th>
-        <th>24h. %</th>
-      </tr>
-      <% @coins.each do |coin| %>
-      <tr>
+<div class="market-title">
+  <h1>More than a Market. Your next market reference!</h1>
+</div>
+<table class="table-market">
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Price</th>
+    <th>24h. %</th>
+  </tr>
+  <% @coins.each do |coin| %>
 
-        <td>
-        <div class="d-flex">
-        <% if signed_in? %>
-          <% if coin.favorited_by?(current_user) %>
-            <%= link_to coin_unfavorite_path(coin), method: "post", remote: true do  %>
-              <i class="fas fa-star mr-3"></i>
+    <tr class="market-table-hover">
+      <td>
+        <div class="d-flex justify-content-center">
+          <% if signed_in? %>
+            <% if coin.favorited_by?(current_user) %>
+              <%= link_to coin_unfavorite_path(coin), method: "post", remote: true do  %>
+                <i class="fas fa-star mr-3"></i>
+              <% end %>
+            <% else %>
+              <%= link_to coin_favorite_path(coin), method: "post", remote: true do  %>
+                <i class="far fa-star mr-3"></i>
+              <% end %>
             <% end %>
           <% else %>
-            <%= link_to coin_favorite_path(coin), method: "post", remote: true do  %>
-              <i class="far fa-star mr-3"></i>
-            <% end %>
+              <%= link_to new_session_path do  %>
+                <i class="far fa-star mr-3"></i>
+              <% end %>
           <% end %>
-        <% else %>
-            <%= link_to new_session_path do  %>
-              <i class="far fa-star mr-3"></i>
-            <% end %>
-        <% end %>
-          <%= coin.market_cap_rank %>
+            <%= coin.market_cap_rank %>
         </div>
-        </td>
-        <td><%= link_to coin.name, coin %></td>
-        <td><%= coin.symbol.upcase %></td>
-        <td><%= coin.price %> $</td>
-        <td><%= coin.percentage_24.to_f.round(2) %> %</td>
-      </tr>
-      <% end %>
-    </table>
+      </td>
+      <td><%= link_to coin.name, coin %></td>
+      <td><%= coin.symbol.upcase %></td>
+      <td>$ <%= number_with_delimiter(coin.price, delimiter: ",", separator: ".") %></td>
+      <td>
+        <% icon = coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %>
+        <div class="d-flex align-items-center justify-content-center">
+          <i class='<%= "fas fa-chevron-#{icon} #{icon} mr-2" %>'></i>
+          <p class="<%= coin.percentage_24.to_f.round(2) > 0 ? "up" : "down" %> m-0">
+          <%= coin.percentage_24.to_f.round(2) %> %
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>

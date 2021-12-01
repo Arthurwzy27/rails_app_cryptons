@@ -4,18 +4,27 @@ table{
   width: 100%;
 }
 
+
 table.table-market {
   font-family: 'Work Sans', sans-serif;
   border-collapse: collapse;
   margin-right: auto;
   margin-left: auto;
-  width: 60%;
+  width: 70%;
+
 }
+
 td, th {
   border-top: 1px solid #ffffff77;
   border-bottom: 1px solid #dddddd77;
   text-align: center;
   padding: 15px;
+}
+
+.market-table-hover {
+  &:hover {
+    background-color: #ffffff13;
+  }
 }
 
 tr:nth-child(even) {
