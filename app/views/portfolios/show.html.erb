@@ -13,7 +13,7 @@
           <% if @portfolio.entries.empty? %>
           <div class="no-entries text-center">
             <h2>You don't have any entries yet...</h2>
-            <h1>Hit the + to add one! 🤑</h1>
+            <h1>Hit the + to add one! ☝🏼</h1>
           </div>
           <% else %>
         <div class="row">
@@ -63,12 +63,12 @@
                   <%= link_to entry.coin.name, coin_path(entry.coin), style: 'color: white; text-decoration: none' %>
                   </div>
                 </td>
-                <td>$ <%= entry.coin.price %></td>
+                <td>$ <%= number_with_delimiter(entry.coin.price, delimiter: ",", separator: ".") %></td>
                 <td>
                   <p class="m-0">$ <%= number_with_delimiter((entry.amount * entry.coin.price).round(2), delimiter: ",", separator: ".") %></p>
                   <small><%= entry.amount.round(5) %> <%= entry.coin.symbol.upcase %></small>
                 </td>
-                <td>$ <%= ((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2) %></td>
+                <td>$ <%= number_with_delimiter(((entry.amount * entry.coin.price) - (entry.amount * entry.buying_price)).round(2), delimiter: ",", separator: ".") %></td>
                 <td>
                 <div class="d-flex justify-content-around">
                   <%= link_to image_tag("edit-icon.png", class: 'icon-edit-delete'), edit_entry_path(entry), class: 'btn btn-cancel' %>
